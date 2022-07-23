@@ -1,0 +1,7 @@
+div.card {
+    display: flex;
+}
+
+div.card div {
+    padding: 0 1em;
+}

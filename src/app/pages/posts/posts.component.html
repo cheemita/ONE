@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="blog-posts">
+        <article class="post post-large" *ngFor="let post of posts">
+          <div class="post-date">
+            <span class="day">{{ post.day }}</span>
+            <span class="month">{{ post.month == "Invalid Date" ? "jan" : post.month }}</span>
+          </div>
+
+          <div class="post-content">
+            <h2>
+              <a href="comments?id={{ post.id }}">{{ post.tittle }}</a>
+            </h2>
+            <p>{{ post.description }}</p>
+
+            <div class="post-meta">
+              <span
+                ><i class="fa fa-user"></i> By <a href="#">{{ post.user }}</a>
+              </span>
+              <span
+                ><i class="fa fa-tag"></i> <a href="#">{{ post.section }}</a>
+              </span>
+              <span
+                ><i class="fa fa-comments"></i>
+                <a href="comments?id={{ post.id }}">Comments</a></span
+              >
+              <a href="comments?id={{ post.id }}" class="btn btn-xs btn-primary pull-right"
+                >Read more...</a
+              >
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</div>

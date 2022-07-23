@@ -1,0 +1,131 @@
+<div class="container" *ngIf="postFound; else noPostFound">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="blog-posts single-post">
+        <article class="post post-large blog-single-post">
+          <div class="post-date">
+            <span class="day">{{ post[0].day }}</span>
+            <span class="month">{{ post[0].month }}</span>
+          </div>
+
+          <div class="post-content">
+            <h2>
+              <a href="blog-post.html">{{ post[0].tittle }}</a>
+            </h2>
+
+            <div class="post-meta">
+              <span
+                ><i class="fa fa-user"></i> By
+                <a href="#">{{ post[0].user }}</a>
+              </span>
+              <span
+                ><i class="fa fa-tag"></i> <a href="#">{{ post[0].section }}</a>
+              </span>
+            </div>
+
+            <p>
+              {{ post[0].description }}
+            </p>
+
+            <div class="post-block post-comments clearfix">
+              <h3>
+                <i class="fa fa-comments"></i>Comments ({{ comments.length }})
+              </h3>
+
+              <ul class="comments">
+                <li *ngFor="let comment of comments">
+                  <div class="comment">
+                    <div class="img-thumbnail">
+                      <img
+                        class="avatar"
+                        alt=""
+                        src="https://picsum.photos/200"
+                      />
+                    </div>
+                    <div class="comment-block">
+                      <div class="comment-arrow"></div>
+                      <span class="comment-by">
+                        <strong style="margin-right: 20px;">{{ comment.user }}</strong>
+                        <span class="pull-right">
+                          <span>
+                            <a href="#"
+                              ><i class="fa fa-reply"></i> Reply</a
+                            ></span
+                          >
+                        </span>
+                      </span>
+                      <p>
+                        {{ comment.comment }}
+                      </p>
+                      <span class="date pull-right"
+                        >Today</span
+                      >
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="post-block post-leave-comment">
+              <h3>Leave a comment</h3>
+
+              <form action="" method="post">
+                <div class="row">
+                  <div class="form-group">
+                    <div class="col-md-6">
+                      <label>Your name *</label>
+                      <input
+                        type="text"
+                        value=""
+                        maxlength="100"
+                        class="form-control"
+                        name="name"
+                        id="name"
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <label>Your email address *</label>
+                      <input
+                        type="email"
+                        value=""
+                        maxlength="100"
+                        class="form-control"
+                        name="email"
+                        id="email"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group">
+                    <div class="col-md-12">
+                      <label>Comment *</label>
+                      <textarea
+                        maxlength="5000"
+                        rows="10"
+                        class="form-control"
+                        name="comment"
+                        id="comment"
+                      ></textarea>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <input
+                      type="submit"
+                      value="Post Comment"
+                      class="btn btn-primary btn-lg"
+                      data-loading-text="Loading..."
+                    />
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #noPostFound>This post does not exist!</ng-template>
